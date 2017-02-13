@@ -1,10 +1,24 @@
 {
-  "manifest_version": 2,
   "name": "Burning Series Extension",
   "version": "0.0.0",
+
   "browser_action": {
-    "default_popup": "html/popup.html"
+    "default_popup": "browser_action.html"
   },
-  "permissions": {
-  }
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": { "default": "Alt+N" }
+    }
+  },
+  "background": {
+    "scripts": ["scripts/background.js"],
+    "persistent": false
+  },
+
+  "permissions": [
+    "tabs",
+    "bookmarks"
+  ],
+
+  "manifest_version": 2
 }

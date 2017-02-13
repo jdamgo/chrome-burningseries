@@ -50,6 +50,7 @@ env:
 
 globals:
   chrome: false
+  bs: true
 
 ########## ########## Plugins ########## ##########
 # Documentation: [Configuring Plugins](http://eslint.org/docs/user-guide/configuring#configuring-plugins)
@@ -242,7 +243,7 @@ rules:
     - after
   quotes:
     - warn
-    - double
+    - single
     - avoidEscape: true
   require-jsdoc:
     - off
