@@ -21,7 +21,7 @@ $RECYCLE.BIN/
 ###############
 
 # Node.js
-npm-debug.log
+npm-debug.log*
 node_modules
 
 

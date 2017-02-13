@@ -1,0 +1,243 @@
+# ESLint Configuration in YAML
+
+#####################################
+# ESLint Inline Configuration Guide #
+#####################################
+#
+# - Environment (block comment)
+#     `eslint-env {environment}, ...`
+# - Globals (block comment)
+#     `global {variable}[:false], ...`
+#     The optional `false` flag makes the variable read-only.
+# - Rules (block comment)
+#     `eslint [{plugin name}/]{rule name}: {rule value like in config file}, ...`
+# - Disabling/Enabling Rules (block comment)
+#     `eslint-(disable|enable) [[{plugin name}/]{rule name}, ...]`
+#     If no rule is specified all are disabled/enabled
+# - Disabling Rules (line comment)
+#     `eslint-disable-[next-]line [[{plugin name}/]{rule name}, ...]`
+
+
+########## ########## Inherited Configurations ########## ##########
+# Documentation: [Extending Configuration Files](http://eslint.org/docs/user-guide/configuring#extending-configuration-files)
+
+extends:
+  - standard
+  - standard-jsx
+
+########## ########## Parser & Parser Options ########## ##########
+# Documentation: [Specifying Parser](http://eslint.org/docs/user-guide/configuring#specifying-parser)
+# Documentation: [Specifying Parser Options](http://eslint.org/docs/user-guide/configuring#specifying-parser-options)
+
+#parser: esprima # default(esprima)
+parserOptions:
+  sourceType: module # standard(module)
+  #ecmaFeatures:
+    #jsx: true # standard(true)
+    #experimentalObjectRestSpread: true # standard(true)
+
+########## ########## Environment ########## ##########
+# Documentation: [Specifying Environments](http://eslint.org/docs/user-guide/configuring#specifying-environments)
+
+env:
+  #es6: true # standard(true)
+  node: false # standard(true)
+
+########## ########## Globals ########## ##########
+# Documentation: [Specifying Globals](http://eslint.org/docs/user-guide/configuring#specifying-globals)
+
+globals:
+  #document: false # standard(false)
+  #navigator: false # standard(false)
+  #window: false # standard(false)
+
+########## ########## Plugins ########## ##########
+# Documentation: [Configuring Plugins](http://eslint.org/docs/user-guide/configuring#configuring-plugins)
+
+plugins:
+  - html
+
+########## ########## Rules ########## ##########
+# Documentation: [Configuring Rules](http://eslint.org/docs/user-guide/configuring#configuring-rules)
+# Documentation: [ESLint Rules](http://eslint.org/docs/rules)
+
+settings:
+  ########## Plugin Rules ##########
+
+  ### html ###
+  html/indent: +2
+  html/report-bad-indent: warn
+
+
+rules:
+  ########## Inherited Rules ##########
+
+  ### standard ###
+  no-negated-in-lhs: off # standard >> no-unsafe-negation
+  no-unsafe-negation: error # standard << no-negated-in-lhs
+
+  ########## Plugin Rules ##########
+
+
+  ########## Possible Errors ##########
+  # Documentation: [Possible Errors](http://eslint.org/docs/rules/#possible-errors)
+  # Documentation: [Possible Errors](http://eslint.org/docs/rules/possible-errors)
+
+  # no-await-in-loop
+  # no-console
+  no-empty:
+    - warn
+    - allowEmptyCatch: true
+  no-extra-semi: warn
+  # no-prototype-builtins
+  # valid-jsdoc # TODO
+
+
+  ########## Best Practices ##########
+  # Documentation: [Best Practices](http://eslint.org/docs/rules/#best-practices)
+
+  # array-callback-return
+  block-scoped-var: error
+  class-methods-use-this: warn
+  # complexity
+  consistent-return: error
+  default-case:
+    - error
+    - commentPattern: ^skip default
+  # dot-notation
+  # guard-for-in
+  # no-alert
+  # no-case-declarations
+  # no-div-regex
+  # no-else-return
+  no-empty-function: warn
+  # no-eq-null
+  # no-implicit-coercion
+  # no-implicit-globals
+  no-invalid-this: error
+  # no-loop-func
+  # no-magic-numbers
+  # no-param-reassign
+  # no-restricted-properties
+  # no-return-await
+  # no-script-url
+  no-unused-labels: warn
+  # no-useless-concat
+  # no-void
+  # no-warning-comments
+  # radix
+  # require-await
+  # vars-on-top
+
+  ########## Strict Mode ##########
+  # Documentation: [Strict Mode](http://eslint.org/docs/rules/#strict-mode)
+
+  # strict
+
+  ########## Variables ##########
+  # Documentation: [Variables](http://eslint.org/docs/rules/#variables)
+
+  # init-declarations
+  # no-catch-shadow
+  # no-restricted-globals
+  # no-shadow
+  # no-undefined
+
+  ########## Node.js & CommonJS ##########
+  # Documentation: [Node.js and CommonJS](http://eslint.org/docs/rules/#nodejs-and-commonjs)
+
+  # global-require
+  # callback-return
+  # no-mixed-requires
+  # no-process-env
+  # no-process-exit
+  # no-restricted-modules
+  # no-sync
+
+  ########## Stylistic Issues ##########
+  # Documentation: [Stylistic Issues](http://eslint.org/docs/rules/#stylistic-issues)
+
+  # array-bracket-spacing
+  array-bracket-spacing: [warn, never]
+  # capitalized-comments
+  computed-property-spacing: warn
+  # consistent-this
+  func-name-matching: warn
+  func-names: [warn, never]
+  # func-style
+  # id-blacklist
+  # id-length
+  # id-match
+  # jsx-quotes
+  # line-comment-position
+  linebreak-style: [warn, windows]
+  lines-around-comment:
+    - warn
+    - allowBlockStart: true
+      allowBlockEnd: true
+      allowObjectStart: true
+      allowObjectEnd: true
+      allowArrayStart: true
+      allowArrayEnd: true
+  lines-around-directive: warn
+  # max-depth
+  # max-len
+  # max-lines
+  # max-nested-callbacks
+  # max-params
+  # max-statements
+  # max-statements-per-line
+  # multiline-ternary
+  # newline-after-var
+  # newline-before-return
+  # newline-per-chained-call
+  # no-bitwise
+  # no-continue
+  # no-inline-comments
+  no-lonely-if: warn
+  # no-multi-assign
+  # no-negated-condition
+  # no-nested-ternary
+  # no-plusplus
+  # no-restricted-syntax
+  # no-ternary
+  # no-underscore-dangle
+  object-curly-newline:
+    - warn
+    - multiline: true
+  object-curly-spacing: [warn, always]
+  # one-var-declaration-per-line
+  operator-assignment: warn
+  # quote-props
+  require-jsdoc:
+    - off
+    - require:
+        FunctionDeclaration: true
+        MethodDefinition: true
+        ClassDeclaration: true
+        ArrowFunctionExpression: true
+  # sort-keys
+  # sort-vars
+  # wrap-regex
+
+  ########## ECMAScript 6 ##########
+  # Documentation: [ECMAScript 6](http://eslint.org/docs/rules/#ecmascript-6)
+
+  arrow-body-style: warn
+  arrow-parens: [warn, as-needed]
+  # no-confusing-arrow
+  # no-restricted-imports
+  no-var: error
+  object-shorthand: warn
+  prefer-arrow-callback:
+    - warn
+    - allowNamedFunctions: false
+      allowUnboundThis: false
+  # prefer-const
+  # prefer-destructuring
+  prefer-numeric-literals: warn
+  prefer-rest-params: warn
+  prefer-spread: warn
+  prefer-template: warn
+  # require-yield
+  # sort-imports
